@@ -9,7 +9,7 @@
 
 - Данную инструкцию по подключению (README.md и в формате pdf)
 
-- Файл с тестовым проектом для Postman (1C-DirectBank Тестирование.postman_collection.json)
+- Файл с тестовым проектом для Postman (1C-DirectBank. API - Тестирование.postman_collection.json)
 
 - Папка с примерами документов в формате xml (examples)
 
