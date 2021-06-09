@@ -26,11 +26,11 @@
 
 | Заголовок |	Значение | Описание |	Комментарий |
 | --------- | -------- | -------- | ----------- |
-| Content-Type |	application/xml |	MIME тип передаваемого контента | Все пакеты в формате xlm
-| customerid | 40702810601300003716 | Id клиента | В качестве идентификатора клиента используется один из его счетов
-| apiversion | 2.2.2 | Версия формата данных | Версия формата данных, в которых осуществляется обмен с банком (текущая рабочая версия - 2.2.2)
-| Authorization | | Данные для авторизации | Используется логин и пароль для авторизации
-| SID	| | Идентификатор сессии | Не используется в методе Logon
+| Content-Type |	application/xml |	MIME тип передаваемого контента | Все пакеты в формате xlm |
+| customerid | 40702810601300003716 | Id клиента | В качестве идентификатора клиента используется один из его счетов |
+| apiversion | 2.2.2 | Версия формата данных | Версия формата данных, в которых осуществляется обмен с банком (текущая рабочая версия - 2.2.2) |
+| Authorization | | Данные для авторизации | Используется логин и пароль для авторизации |
+| SID	| | Идентификатор сессии | Не используется в методе Logon |
 
 
 ## 4. Правила формирования пакетов
@@ -43,19 +43,19 @@
 
 | Параметр  |	Значение | Описание |
 | --------- | -------- | -------- |
-| Packet@id	| Новый id	| Уникальный идентификатор транспортного пакета
-| Packet@CreationDate	| dateTime	| Дата и время создания транспортного контейнера (системное время)
-| Packet@formatVersion	| 2.2.2	| Версия формата данных, в которых осуществляется обмен с банком (текущая рабочая версия - 2.2.2)
-| Packet@UserAgent	| Наименование системы	| Наименование системы, в рамках которых формируется документ
-| Packet.Document@id	| Новый id	| Уникальный идентификатор электронного документа
-| Packet.Document@dockind	| Тип документа	| Основные типы: 10 - платёжное поручение, 14 - запрос выписки
-| Packet.Document@formatVersion	| 2.2.2	| Версия формата данных, в которых осуществляется обмен с банком (текущая рабочая версия - 2.2.2)
-| Packet.Sender.Customer@id	| Id клиента	| В качестве идентификатора клиента используется один из его счетов.
-| Packet.Sender.Customer@Name	| Наименование организации	| Указывается полное наименование организации
-| Packet.Sender.Customer@inn	| ИНН организации	| 
-| Packet.Recipent.Bank@bic	| БИК банка	| 
-| Packet.Recipent.Bank@Name	| Наименование банка	| 
-| Packet.Document.Data	| Данные электронного документа	| Документ кодируется в base64
+| Packet@id	| Новый id	| Уникальный идентификатор транспортного пакета |
+| Packet@CreationDate	| dateTime	| Дата и время создания транспортного контейнера (системное время) |
+| Packet@formatVersion	| 2.2.2	| Версия формата данных, в которых осуществляется обмен с банком (текущая рабочая версия - 2.2.2) |
+| Packet@UserAgent	| Наименование системы	| Наименование системы, в рамках которых формируется документ |
+| Packet.Document@id	| Новый id	| Уникальный идентификатор электронного документа |
+| Packet.Document@dockind	| Тип документа	| Основные типы: 10 - платёжное поручение, 14 - запрос выписки |
+| Packet.Document@formatVersion	| 2.2.2	| Версия формата данных, в которых осуществляется обмен с банком (текущая рабочая версия - 2.2.2) |
+| Packet.Sender.Customer@id	| Id клиента	| В качестве идентификатора клиента используется один из его счетов. |
+| Packet.Sender.Customer@Name	| Наименование организации	| Указывается полное наименование организации |
+| Packet.Sender.Customer@inn	| ИНН организации	| |
+| Packet.Recipent.Bank@bic	| БИК банка	| |
+| Packet.Recipent.Bank@Name	| Наименование банка	| |
+| Packet.Document.Data	| Данные электронного документа	| Документ кодируется в base64 |
 
 
 
@@ -69,22 +69,22 @@
 
 | Параметр  |	Значение | Описание |
 | --------- | -------- | -------- |
-| StatementRequest@id	| Новый id	| Уникальный идентификатор электронного документа (должен совпадать с Packet.Document@id)
-| StatementRequest@CreationDate	| dateTime	| Дата и время создания выписки (системное время)
-| StatementRequest.Data.DateFrom	| dateTime	| Дата выписки «с» (включая указанный день)
-| StatementRequest.Data.DateTo	| dateTime	| Дата выписки «по» (включая указанный день)
-| StatementRequest@formatVersion	| 2.2.2	| Версия формата данных, в которых осуществляется обмен с банком (текущая рабочая версия - 2.2.2)
-| StatementRequest@UserAgent	| Наименование системы	| Наименование системы, в рамках которых формируется документ
-| StatementRequest.Sender@id	| Id клиента	| В качестве идентификатора клиента используется один из его счетов (должно совпадать с packet.Sender.Customer@id)
-| StatementRequest.Sender@Name	| Наименование организации	| Должно совпадать с Packet.Sender.Customer@Name
-| StatementRequest.Sender@inn	| ИНН организации	| Должно совпадать с Packet.Sender.Customer@inn
-| StatementRequest.Sender@kpp	| КПП организации| 	
-| StatementRequest.Recipent@bic	| БИК банка	| Должно совпадать с Packet.Sender.Recipent.Bank.bic
-| StatementRequest.Recipent@Name	| Наименование банка	| Должно совпадать с Packet.Sender.Recipent.Bank.Name
-| StatementRequest.Data.StatementType	| 0	| Тип выписки: 0 - Окончательная выписка; 1 - Промежуточная выписка; 2 - Текущий остаток на счете
-| StatementRequest.Data.Account	| Номер счета	| Номер счета, по которому запрашивается выписка (При тестировании необходимо использовать счёт, указанный в проекте Postman)
-| StatementRequest.Data.Bank@bic	| БИК банка	| Должно совпадать с Packet.Recipent.Bank@bic
-| StatementRequest.Data.Bank@name	| Наименование банка	| Должно совпадать с Packet.Recipent.Bank@Name
+| StatementRequest@id	| Новый id	| Уникальный идентификатор электронного документа (должен совпадать с Packet.Document@id) |
+| StatementRequest@CreationDate	| dateTime	| Дата и время создания выписки (системное время) |
+| StatementRequest.Data.DateFrom	| dateTime	| Дата выписки «с» (включая указанный день) |
+| StatementRequest.Data.DateTo	| dateTime	| Дата выписки «по» (включая указанный день) |
+| StatementRequest@formatVersion	| 2.2.2	| Версия формата данных, в которых осуществляется обмен с банком (текущая рабочая версия - 2.2.2) |
+| StatementRequest@UserAgent	| Наименование системы	| Наименование системы, в рамках которых формируется документ |
+| StatementRequest.Sender@id	| Id клиента	| В качестве идентификатора клиента используется один из его счетов (должно совпадать с packet.Sender.Customer@id) |
+| StatementRequest.Sender@Name	| Наименование организации	| Должно совпадать с Packet.Sender.Customer@Name |
+| StatementRequest.Sender@inn	| ИНН организации	| Должно совпадать с Packet.Sender.Customer@inn |
+| StatementRequest.Sender@kpp	| КПП организации| 	|
+| StatementRequest.Recipent@bic	| БИК банка	| Должно совпадать с Packet.Sender.Recipent.Bank.bic |
+| StatementRequest.Recipent@Name	| Наименование банка	| Должно совпадать с Packet.Sender.Recipent.Bank.Name |
+| StatementRequest.Data.StatementType	| 0	| Тип выписки: 0 - Окончательная выписка; 1 - Промежуточная выписка; 2 - Текущий остаток на счете |
+| StatementRequest.Data.Account	| Номер счета	| Номер счета, по которому запрашивается выписка (При тестировании необходимо использовать счёт, указанный в проекте Postman) |
+| StatementRequest.Data.Bank@bic	| БИК банка	| Должно совпадать с Packet.Recipent.Bank@bic |
+| StatementRequest.Data.Bank@name	| Наименование банка	| Должно совпадать с Packet.Recipent.Bank@Name |
 
 
 
